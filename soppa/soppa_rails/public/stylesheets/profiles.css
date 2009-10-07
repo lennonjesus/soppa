@@ -1,0 +1,21 @@
+/* 
+    Document   : profiles.css
+    Created on : Aug 22, 2009, 11:07:47 PM
+    Author     : lennon
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.profile {
+    display: block;
+    border: 1px dotted green;
+    width: 200px;
+    height: 150px;
+    margin: 15px;
+}
+

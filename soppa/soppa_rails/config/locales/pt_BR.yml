@@ -1,0 +1,18 @@
+
+pt_BR:
+  msg: "Tá funcionando!"
+
+  profiles:
+    index:
+      title: "Perfis"
+
+  menu:
+    item:
+      home: "SOPPA"
+      login: "Login"
+      signup: "Registre-se"
+      logout: "Sair"
+      my_profile: "Meu perfil"
+      create_profile: "Criar perfil"
+      people: "Pessoas"
+
