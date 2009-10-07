@@ -1,6 +1,9 @@
 
 pt_BR:
-  msg: "Tá funcionando!"
+  msg:
+    authentication:
+      login:
+        success: "Autenticação bem sucedida"
 
   profiles:
     index:
