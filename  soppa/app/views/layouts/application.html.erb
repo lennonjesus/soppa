@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>Soppa - Adicione seu tempero!</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <style type="text/css" >
+
+    </style>
+  </head>
+
+  <body>
+    <div id="page">
+      <p>
+        <%= "<p style=\"color: green\">#{flash[:notice]}</p>" if flash[:notice] %>
+      </p>
+      
+      <div id="top" >
+        <%= link_to t('menu.item.home'), :controller => "home" %>&nbsp;|&nbsp;
+        <%= link_to t('menu.item.login'), :controller => "/login" unless logged_in? %>
+        <%= link_to t('menu.item.my_profile'), current_user.profile if logged_in? and current_user.profile != nil %>
+        <%= link_to t('menu.item.create_profile'), new_profile_path if logged_in? and current_user.profile == nil %>
+        <%= link_to t('menu.item.people'), :controller => "/profiles" if logged_in? %>
+        <%= link_to t('menu.item.logout'), :controller => "/logout" if logged_in? %>
+        <%= link_to t('menu.item.signup'), :controller => "/signup" unless logged_in? %>
+        <%= current_user.profile.name if logged_in? and current_user.profile != nil %>
+      </div>
+
+      <div id="content">
+
+        <%= yield %>
+
+      </div>
+
+      <div id="footer">
+        &copy; 2009 SOPPA
+      </div>
+    </div>
+  </body>
+</html>
