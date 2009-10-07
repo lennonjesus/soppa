@@ -14,8 +14,8 @@
 
   html, body {
     height: 98%;
-    background-color: black;
-    color: white;
+/*    background-color: black;
+    color: white;*/
   }
 
   #page {
@@ -45,8 +45,8 @@
   }
 
   #top {
-    background-color: black;
-    color: white;
+/*    background-color: black;
+    color: white;*/
     border-bottom: 1px solid gray;
     padding-bottom: 2px;
   }

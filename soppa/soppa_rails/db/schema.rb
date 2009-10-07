@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20091006131918) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "identity_url"
     t.integer  "city_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -110,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20091006131918) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
+    t.string   "identity_url"
   end
 
 end
