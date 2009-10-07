@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @ingredient_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @ingredient_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_ingredient_type_path(@ingredient_type) %> |
+<%= link_to 'Back', ingredient_types_path %>
