@@ -1,0 +1,24 @@
+<% form_for(@profile,:html => { :multipart => true }) do |f| %>
+  
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "Nome" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label "Sobre" %><br />
+    <%= f.text_area :about %>
+  </p>
+  <p>
+    <%= f.label "Cidade" %><br />
+    <%= select_tag "profile[city_id]", options_from_collection_for_select(City.find(:all), 'id','name') %>
+  </p>
+  <p>
+    <%= f.label 'Foto' %><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+<% end %>
