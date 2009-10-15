@@ -21,11 +21,15 @@
   </p>
   <p>
     <%= f.label :prepaire_time %><br />
-    <%= f.datetime_select :prepaire_time %>
+    <%= f.datetime_select :prepaire_time, :prompt => {:hour => "horas", :minute => "minutos"}, :order => [:hour, :minute] %>
   </p>
   <p>
     <%= f.label :score %><br />
     <%= f.text_field :score %>
+  </p>
+  <p>
+    <%= f.label "Tipo de receita" %><br />
+    <%= select_tag "recipe[recipe_type_id]", options_from_collection_for_select(RecipeType.find(:all), 'id','name') %>
   </p>
   <p>
     <%= f.submit 'Create' %>

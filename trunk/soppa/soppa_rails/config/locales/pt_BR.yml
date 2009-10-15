@@ -18,4 +18,24 @@ pt_BR:
       my_profile: "Meu perfil"
       create_profile: "Criar perfil"
       people: "Pessoas"
+      recipes: "Receitas"
+      recipe_types: "Tipos de Receitas"
+      ingredients: "Ingredientes"
+      ingredient_types: "Tipos de Ingredientes"
+      countries: "Países"
+      cities: "Cidades"
+      states: "Estados"
+
+
+  activerecord:
+    errors:
+      models:
+        recipe:
+          attributes:
+            name:
+              blank: "Tesssssssssssssssssssttteeeeeeeeeeeeee"
+      template:
+        header: "Outro teeeeeeeeeeeesteee"
+        body: "Mais outro teeeste"
+
 
