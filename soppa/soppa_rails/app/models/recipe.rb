@@ -4,6 +4,7 @@ class Recipe < ActiveRecord::Base
   has_many :recipe_items
   has_many :comments
 
-  validates_presence_of :name, :description, :prepaire_mode
+  validates_presence_of :name, :description, :prepare_mode
+
 
 end

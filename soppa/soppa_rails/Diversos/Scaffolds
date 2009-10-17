@@ -1,5 +1,5 @@
 recipe 
-    name:string description:text prepaire_mode:text rendiment:string prepaire_time:time score:integer
+    name:string description:text prepare_mode:text rendiment:string prepare_time:time score:integer
 
 recipe_type
     name:string description:text
