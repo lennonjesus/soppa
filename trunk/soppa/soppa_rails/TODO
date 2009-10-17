@@ -1,0 +1,7 @@
+- verificar os relacionamentos na base de dados
+- estudar searchlogic
+- unificar códigos dos forms new e edit
+- verificar os required fields
+- estudar i18n e terminar a implementacao
+- OK - corrigir o atributo prepaire
+- verificar todo o sistema e trocar caracteres acentuados por entidades html/xml

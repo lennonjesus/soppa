@@ -1,5 +1,6 @@
 
 pt_BR:
+  # Mensagens do sistema
   msg:
     authentication:
       login:
@@ -9,6 +10,7 @@ pt_BR:
     index:
       title: "Perfis"
 
+  #Itens do menu principal
   menu:
     item:
       home: "SOPPA"
@@ -27,15 +29,22 @@ pt_BR:
       states: "Estados"
 
 
+  # Mensagens do ActiveRecord
   activerecord:
     errors:
       models:
         recipe:
-          attributes:
-            name:
-              blank: "Tesssssssssssssssssssttteeeeeeeeeeeeee"
+          #attributes:
+            #name:
+              blank: "Não pode ser nulo"
+            #description:
+            #  blank: "Nao pode ser nulo"
+            #prepare_mode:
+            #  blank: "Nao pode ser nulo"
       template:
-        header: "Outro teeeeeeeeeeeesteee"
-        body: "Mais outro teeeste"
+        header:
+          one: "Foi encontrado um erro ao tentar salvar a receita"
+          other: "Foram encontrados {{count}} erros ao tentar salvar a receita"
+        body: "Problemas nos campos: "
 
 
