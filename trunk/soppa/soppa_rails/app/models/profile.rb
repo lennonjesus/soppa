@@ -11,5 +11,5 @@ class Profile < ActiveRecord::Base
                     :large =>   "400x400>"
                   }
 
-  validates_presence_of :name
+  validates_presence_of :name, :city
 end
