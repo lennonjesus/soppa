@@ -5,3 +5,4 @@
 - estudar i18n e terminar a implementacao
 - OK - corrigir o atributo prepaire
 - verificar todo o sistema e trocar caracteres acentuados por entidades html/xml
+- adicionar seguranca em todos os controllers
