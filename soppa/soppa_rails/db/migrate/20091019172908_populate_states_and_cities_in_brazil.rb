@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class PopulateStatesAndCitiesInBrazil < ActiveRecord::Migration
   def self.up
 
