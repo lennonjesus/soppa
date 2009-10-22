@@ -39,6 +39,30 @@ Entao /^eu deveria ver a receita cadastrada na lista$/ do
   response.should contain "Feijao de corda"
 end
 
+# ==========================
+
+Dado /^que eu tenho uma receita com o nome ([^\"]*)$/ do |nome|
+  Recipe.create! :name => nome, :description => "Antiga pizza de calabresa", :prepare_mode => "Lorem Ipsum"
+end
+
+Dado /^estou na pagina de receitas$/ do
+  visit recipes_path
+end
+
+Dado /^altero o nome da receita para "([^\"]*)"$/ do |nome|
+  fill_in "recipe[name]", :with => nome
+  click_button "Save"
+end
+
+Entao /^eu deveria ver a receita com seu novo nome na lista$/ do
+  response.should contain "Pizza da Vovo"
+end
+
+#================
+
+Entao /^eu nao deveria mais ver a receita ([^\"]*) na lista$/ do |nome|
+  response.should_not contain nome
+end
 
 
 
