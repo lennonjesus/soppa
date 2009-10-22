@@ -1,11 +1,3 @@
-#
-# inspired by Ryan Bates screencast
-#
-/*
-* I can comment this way
-*/
-# and this way
-// and this way
 Funcionalidade: Manutencao de receitas
     # Main goal of this project
     Para que os usuarios possam interagir com as receitas
