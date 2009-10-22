@@ -1994,3 +1994,543 @@ Processing RecipesController#index (for 127.0.0.1 at 2009-10-21 23:58:10) [GET]
 Rendering template within layouts/application
 Rendering recipes/index
 Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/recipes]
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:27:48', '2009-10-22 13:27:48', NULL, NULL)[0m
+  [4;35;1mRecipe Create (0.1ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES(' Ovo Frito', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:27:48', '2009-10-22 13:27:48', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  [4;36;1mRecipe Load (0.5ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 266ms (View: 263, DB: 1) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  [4;35;1mRecipe Load (0.1ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/new with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (6.6ms)
+Completed in 9ms (View: 9, DB: 0) | 200 OK [http://www.example.com/recipes/new]
+REQUESTING PAGE: POST /recipes with {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/new"}
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2009-10-22 11:27:48) [POST]
+  Parameters: {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"}
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Feijao de corda', 'Feijao de corda do Bar do Arnaudo', 'Peca um Feijao de corda e espere o garçom trazer', '', NULL, NULL, '2009-10-22 13:27:48', '2009-10-22 13:27:48', NULL, NULL)[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:27:48', '2009-10-22 13:27:48', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+  [4;36;1mRecipeType Load (0.2ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (4.7ms)
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://www.example.com/recipes/1/edit]
+REQUESTING PAGE: POST /recipes/1 with {"_method"=>"put", "recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/1/edit"}
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2009-10-22 11:27:48) [PUT]
+  Parameters: {"recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save", "id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.1ms)[0m   [0;1mUPDATE "recipes" SET "name" = 'Pizza da Vovo', "rendiment" = '', "updated_at" = '2009-10-22 13:27:48' WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:27:48', '2009-10-22 13:27:48', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: DELETE /recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2009-10-22 11:27:48) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (0.1ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:27:48) [GET]
+  [4;36;1mRecipe Load (0.1ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:28:04', '2009-10-22 13:28:04', NULL, NULL)[0m
+  [4;35;1mRecipe Create (0.1ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES(' Ovo Frito', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:28:04', '2009-10-22 13:28:04', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 80ms (View: 77, DB: 1) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/new with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+  [4;36;1mRecipeType Load (0.9ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (10.6ms)
+Completed in 13ms (View: 12, DB: 1) | 200 OK [http://www.example.com/recipes/new]
+REQUESTING PAGE: POST /recipes with {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/new"}
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2009-10-22 11:28:05) [POST]
+  Parameters: {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"}
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Feijao de corda', 'Feijao de corda do Bar do Arnaudo', 'Peca um Feijao de corda e espere o garçom trazer', '', NULL, NULL, '2009-10-22 13:28:05', '2009-10-22 13:28:05', NULL, NULL)[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.4ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:28:05', '2009-10-22 13:28:05', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (4.4ms)
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://www.example.com/recipes/1/edit]
+REQUESTING PAGE: POST /recipes/1 with {"_method"=>"put", "recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/1/edit"}
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2009-10-22 11:28:05) [PUT]
+  Parameters: {"recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save", "id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.1ms)[0m   [0;1mUPDATE "recipes" SET "name" = 'Pizza da Vovo', "rendiment" = '', "updated_at" = '2009-10-22 13:28:05' WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:28:05', '2009-10-22 13:28:05', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: DELETE /recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2009-10-22 11:28:05) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (0.1ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:28:05) [GET]
+  [4;36;1mRecipe Load (0.1ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+  [4;36;1mRecipe Create (4.3ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:52:25', '2009-10-22 13:52:25', NULL, NULL)[0m
+  [4;35;1mRecipe Create (0.1ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES(' Ovo Frito', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:52:25', '2009-10-22 13:52:25', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:52:25) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 334ms (View: 331, DB: 5) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/new with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (6.5ms)
+Completed in 9ms (View: 8, DB: 0) | 200 OK [http://www.example.com/recipes/new]
+REQUESTING PAGE: POST /recipes with {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/new"}
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2009-10-22 11:52:26) [POST]
+  Parameters: {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"}
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Feijao de corda', 'Feijao de corda do Bar do Arnaudo', 'Peca um Feijao de corda e espere o garçom trazer', '', NULL, NULL, '2009-10-22 13:52:26', '2009-10-22 13:52:26', NULL, NULL)[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:52:26', '2009-10-22 13:52:26', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+  [4;36;1mRecipeType Load (0.2ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (40.2ms)
+Completed in 44ms (View: 43, DB: 0) | 200 OK [http://www.example.com/recipes/1/edit]
+REQUESTING PAGE: POST /recipes/1 with {"_method"=>"put", "recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/1/edit"}
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2009-10-22 11:52:26) [PUT]
+  Parameters: {"recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save", "id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.1ms)[0m   [0;1mUPDATE "recipes" SET "name" = 'Pizza da Vovo', "rendiment" = '', "updated_at" = '2009-10-22 13:52:26' WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 13:52:26', '2009-10-22 13:52:26', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: DELETE /recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2009-10-22 11:52:26) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (0.1ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 11:52:26) [GET]
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+  [4;36;1mRecipe Create (0.4ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:12:52', '2009-10-22 17:12:52', NULL, NULL)[0m
+  [4;35;1mRecipe Create (0.1ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES(' Ovo Frito', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:12:52', '2009-10-22 17:12:52', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:12:52) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 195ms (View: 193, DB: 1) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  [4;35;1mRecipe Load (0.1ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/new with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (11.6ms)
+Completed in 14ms (View: 13, DB: 0) | 200 OK [http://www.example.com/recipes/new]
+REQUESTING PAGE: POST /recipes with {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/new"}
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2009-10-22 15:12:53) [POST]
+  Parameters: {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"}
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Feijao de corda', 'Feijao de corda do Bar do Arnaudo', 'Peca um Feijao de corda e espere o garçom trazer', '', NULL, NULL, '2009-10-22 17:12:53', '2009-10-22 17:12:53', NULL, NULL)[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 95ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:12:53', '2009-10-22 17:12:53', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (3.8ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://www.example.com/recipes/1/edit]
+REQUESTING PAGE: POST /recipes/1 with {"_method"=>"put", "recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/1/edit"}
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2009-10-22 15:12:53) [PUT]
+  Parameters: {"recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save", "id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.1ms)[0m   [0;1mUPDATE "recipes" SET "name" = 'Pizza da Vovo', "rendiment" = '', "updated_at" = '2009-10-22 17:12:53' WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:12:53', '2009-10-22 17:12:53', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  [4;35;1mRecipe Load (0.2ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: DELETE /recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2009-10-22 15:12:53) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (0.1ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:12:53) [GET]
+  [4;36;1mRecipe Load (0.1ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+  [4;36;1mRecipe Create (0.5ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:14:32', '2009-10-22 17:14:32', NULL, NULL)[0m
+  [4;35;1mRecipe Create (0.1ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES(' Ovo Frito', 'Lorem ipsum', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:14:32', '2009-10-22 17:14:32', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 72ms (View: 70, DB: 1) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  [4;35;1mRecipe Load (0.1ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/new with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+Rendering template within layouts/application
+Rendering recipes/new
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (5.6ms)
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://www.example.com/recipes/new]
+REQUESTING PAGE: POST /recipes with {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/new"}
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2009-10-22 15:14:32) [POST]
+  Parameters: {"recipe"=>{"name"=>"Feijao de corda", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Feijao de corda do Bar do Arnaudo", "prepare_mode"=>"Peca um Feijao de corda e espere o gar\xC3\xA7om trazer", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"}
+  [4;35;1mRecipe Create (0.3ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Feijao de corda', 'Feijao de corda do Bar do Arnaudo', 'Peca um Feijao de corda e espere o garçom trazer', '', NULL, NULL, '2009-10-22 17:14:32', '2009-10-22 17:14:32', NULL, NULL)[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/recipes]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (0.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 45ms (View: 3, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;35;1mRecipe Create (0.2ms)[0m   [0mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:14:32', '2009-10-22 17:14:32', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  [4;36;1mRecipe Load (0.2ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: GET /recipes/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/edit
+  [4;36;1mRecipeType Load (0.1ms)[0m   [0;1mSELECT * FROM "recipe_types" [0m
+Rendered recipes/_form (11.2ms)
+Completed in 14ms (View: 13, DB: 0) | 200 OK [http://www.example.com/recipes/1/edit]
+REQUESTING PAGE: POST /recipes/1 with {"_method"=>"put", "recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save"} and HTTP headers {"HTTP_REFERER"=>"/recipes/1/edit"}
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2009-10-22 15:14:32) [PUT]
+  Parameters: {"recipe"=>{"name"=>"Pizza da Vovo", "rendiment"=>"", "prepare_time(1i)"=>"", "prepare_time(2i)"=>"", "prepare_time(3i)"=>"", "score"=>"", "description"=>"Antiga pizza de calabresa", "prepare_mode"=>"Lorem Ipsum", "prepare_time(4i)"=>"", "prepare_time(5i)"=>"", "recipe_type_id"=>""}, "commit"=>"Save", "id"=>"1"}
+  [4;35;1mRecipe Load (4.2ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;36;1mRecipe Update (0.1ms)[0m   [0;1mUPDATE "recipes" SET "name" = 'Pizza da Vovo', "rendiment" = '', "updated_at" = '2009-10-22 17:14:32' WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes/1
+Completed in 10ms (DB: 4) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recipes/show
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes/1]
+  [4;36;1mRecipe Create (0.2ms)[0m   [0;1mINSERT INTO "recipes" ("name", "description", "prepare_mode", "rendiment", "prepare_time", "score", "created_at", "updated_at", "recipe_type_id", "user_id") VALUES('Pizza de Calabresa', 'Antiga pizza de calabresa', 'Lorem Ipsum', NULL, NULL, NULL, '2009-10-22 17:14:32', '2009-10-22 17:14:32', NULL, NULL)[0m
+REQUESTING PAGE: GET /recipes with {} and HTTP headers {}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  [4;35;1mRecipe Load (0.3ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/recipes]
+REQUESTING PAGE: DELETE /recipes/1 with {} and HTTP headers {"HTTP_REFERER"=>"/recipes"}
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2009-10-22 15:14:32) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (1.3ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (0.1ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://www.example.com/recipes
+Completed in 2ms (DB: 1) | 302 Found [http://www.example.com/recipes/1]
+REQUESTING PAGE: GET http://www.example.com/recipes with {} and HTTP headers {"HTTP_REFERER"=>"/recipes/1"}
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2009-10-22 15:14:32) [GET]
+  [4;36;1mRecipe Load (0.1ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/application
+Rendering recipes/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://www.example.com/recipes]
