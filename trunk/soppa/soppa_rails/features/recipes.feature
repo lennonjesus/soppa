@@ -23,6 +23,19 @@ Funcionalidade: Manutencao de receitas
         E preencho o formulario
         Entao eu deveria ver a receita cadastrada na lista
 
+    Cenario: Edicao de receita
+        Dado que eu tenho uma receita com o nome Pizza de Calabresa
+        E estou na pagina de receitas
+        E clico no link "Edit"
+        E altero o nome da receita para "Pizza da Vovo"
+        Entao eu deveria ver a receita com seu novo nome na lista
+
+    Cenario: Exclusao de receita
+        Dado que eu tenho uma receita com o nome Pizza de Calabresa
+        E estou na pagina de receitas
+        E clico no link "Destroy"
+        Entao eu nao deveria mais ver a receita Pizza de Calabresa na lista
+
 #    Scenario: Create Valid Article
 #        Given I have no articles
 #        And I am on the list of articles
