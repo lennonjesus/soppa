@@ -41,6 +41,7 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
+    @recipe.user = current_user
 
     respond_to do |format|
       if @recipe.save

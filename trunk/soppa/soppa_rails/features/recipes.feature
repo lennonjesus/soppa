@@ -27,15 +27,3 @@ Funcionalidade: Manutencao de receitas
         E estou na pagina de receitas
         E clico no link "Destroy"
         Entao eu nao deveria mais ver a receita Pizza de Calabresa na lista
-
-#    Scenario: Create Valid Article
-#        Given I have no articles
-#        And I am on the list of articles
-#        When I follow "New Article"
-#        And I fill in "Title" with "Spuds"
-#        And I fill in "Content" with "Delicious potato wedges!"
-#        And I press "Create"
-#        Then I should see "New article created."
-#        And I should see "Spuds"
-#        And I should see "Delicious potato wedges!"
-#        And I should have 1 article

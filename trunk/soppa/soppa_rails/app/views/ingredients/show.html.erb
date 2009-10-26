@@ -8,6 +8,12 @@
   <%=h @ingredient.description %>
 </p>
 
+<p>
+  <b>Type</b>
+  <%=h @ingredient.ingredient_type.name %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
 <%= link_to 'Back', ingredients_path %>

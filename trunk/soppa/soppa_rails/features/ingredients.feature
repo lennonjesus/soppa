@@ -7,7 +7,7 @@ Funcionalidade: Gerenciar ingredientes
         Dado que eu tenho os ingredientes Tomate, Cebola
         E eu estou na lista de ingredientes
         Entao eu deveria poder visualizar o ingrediente "Tomate"
-        E eu deveria poder visualizar o ingrediente "Cebola""
+        E eu deveria poder visualizar o ingrediente "Cebola"
 
 #    Scenario: Create Valid Article
 #        Given I have no articles
