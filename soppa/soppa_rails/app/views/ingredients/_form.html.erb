@@ -11,7 +11,7 @@
   </p>
   <p>
     <%= f.label "Tipo" %><br />
-    <%= select_tag "ingredient[ingredient_type_id]", options_from_collection_for_select(IngredientType.find(:all), 'id','name', @ingredient.ingredient_type.id) %>
+    <%= select_tag "ingredient[ingredient_type_id]", options_from_collection_for_select(IngredientType.find(:all), 'id','name', @ingredient_type.id) %>
   </p>
   <p>
     <%= f.submit 'Save' %>

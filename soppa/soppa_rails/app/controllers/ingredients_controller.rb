@@ -25,6 +25,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/new.xml
   def new
     @ingredient = Ingredient.new
+    @ingredient_type = IngredientType.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1/edit
   def edit
     @ingredient = Ingredient.find(params[:id])
+    @ingredient_type = @ingredient.ingredient_type
   end
 
   # POST /ingredients
