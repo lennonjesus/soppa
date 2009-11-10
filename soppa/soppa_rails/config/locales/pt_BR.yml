@@ -18,6 +18,7 @@ pt_BR:
       signup: "Registre-se"
       logout: "Sair"
       my_profile: "Meu perfil"
+      my_favorites: "Meus favoritos"
       create_profile: "Criar perfil"
       people: "Pessoas"
       recipes: "Receitas"
@@ -27,6 +28,13 @@ pt_BR:
       countries: "Países"
       cities: "Cidades"
       states: "Estados"
+
+  labels:
+    recipe:
+      show: "Exibir receita"
+      destroy: "Excluir"
+      form:
+         name: "Nome"
 
 
   # Mensagens do ActiveRecord

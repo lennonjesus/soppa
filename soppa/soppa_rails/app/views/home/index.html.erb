@@ -1,1 +1,29 @@
 <h1>&Eacute; SOPPA! Adicione seu tempero.</h1>
+
+<br />
+<br />
+<input type="text" id="search_box" name="" /><input type="submit" value="pesquisar" /><br />
+
+<div id="search_results"></div>
+
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#search_box").focus();
+
+    $("#search_box").keyup (function () {
+      $.ajax (
+        {
+           success: function(request) {
+             $('#search_results').html(request);
+           },
+           type: 'post',
+           url: '/search/all/' + $(this).val()
+         }
+      )
+    });
+
+  });
+
+</script>

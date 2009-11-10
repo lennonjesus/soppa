@@ -2,7 +2,14 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.xml
   def index
-    @recipes = Recipe.all
+
+    @recipes = []
+    @my_recipes = []
+
+    Recipe.all.each do |recipe|
+      @recipes << recipe unless recipe.user == current_user
+      @my_recipes << recipe if recipe.user == current_user
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +53,10 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         flash[:notice] = 'Recipe was successfully created.'
+
+#        format.html { render :action => "create_step2" }
+
+#        redirect_to "step2"
         format.html { redirect_to(@recipe) }
         format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
       else
@@ -72,6 +83,10 @@ class RecipesController < ApplicationController
     end
   end
 
+#  def search
+#    @recipes = Recipe.find_all_by_name params[:id]
+#  end
+
   # DELETE /recipes/1
   # DELETE /recipes/1.xml
   def destroy
@@ -81,6 +96,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(recipes_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

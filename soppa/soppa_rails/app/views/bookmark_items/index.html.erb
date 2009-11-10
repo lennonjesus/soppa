@@ -1,0 +1,18 @@
+<h1>Listing bookmark_items</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @bookmark_items.each do |bookmark_item| %>
+  <tr>
+    <td><%= link_to 'Show', bookmark_item %></td>
+    <td><%= link_to 'Edit', edit_bookmark_item_path(bookmark_item) %></td>
+    <td><%= link_to 'Destroy', bookmark_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bookmark_item', new_bookmark_item_path %>

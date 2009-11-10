@@ -1,3 +1,23 @@
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#estados").change (function () {
+      $.ajax (
+        {
+           success: function(request) {
+             $('#profile_city_id').html(request);
+           },
+           type: 'post',
+           url: '/profiles/load_cities/' + $(this).val()
+         }
+      )
+    });
+
+  });
+
+</script>
+
 <% form_for(@profile,:html => { :multipart => true }) do |f| %>
   
   <%= f.error_messages %>
@@ -11,8 +31,16 @@
     <%= f.text_area :about %>
   </p>
   <p>
+    <%= f.label "Estado" %><br />
+    <select id="estados" onchange="" >
+      <option value="0">Selecione um estado</option>
+      <%= options_from_collection_for_select(State.find(:all), 'id','acronym') %>
+    </select>
+  </p>
+  <p>
     <%= f.label "Cidade" %><br />
-    <%= select_tag "profile[city_id]", options_from_collection_for_select(City.find(:all), 'id','name') %>
+    <%= select_tag "profile[city_id]", ("<option value=#{@profile.city.id}>#{@profile.city.name}</option>" unless @profile.city == nil), :disabled => false  %>
+
   </p>
   <p>
     <%= f.label 'Foto' %><br />

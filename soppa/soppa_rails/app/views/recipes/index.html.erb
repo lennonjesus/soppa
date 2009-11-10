@@ -1,5 +1,8 @@
 <h1>Listing recipes</h1>
 
+<input type="text" id="" name="" value="Implementar pesquisa..." /><input type="submit" value="pesquisar" /><br />
+
+<h3>Minhas receitas</h3>
 <table>
   <tr>
     <th>Name</th>
@@ -8,19 +11,60 @@
     <th>Rendiment</th>
     <th>Prepare time</th>
     <th>Score</th>
+    <th>Photo</th>
   </tr>
 
-<% @recipes.each do |recipe| %>
-  <tr>
+<% @my_recipes.each do |recipe| %>
+  <tr id="recipe_<%= recipe.id %>">
     <td><%=h recipe.name %></td>
     <td><%=h recipe.description %></td>
     <td><%=h recipe.prepare_mode %></td>
     <td><%=h recipe.rendiment %></td>
     <td><%=h recipe.prepare_time %></td>
     <td><%=h recipe.score %></td>
-    <td><%= link_to 'Show', recipe %></td>
+    <td>
+      <% if recipe.photo.exists? then %>
+        <%= image_tag recipe.photo.url(:thumb) %>
+      <% else %>
+      <p>sem foto</p>
+    </td>
+<% end %>
+    <td><%= link_to t('labels.recipe.show'), recipe %></td>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to_remote "Destroy", :url => recipe_path(recipe), :confirm => "[i18n] Are you sure?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h3>Receitas de outras pessoas</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Prepare mode</th>
+    <th>Rendiment</th>
+    <th>Prepare time</th>
+    <th>Score</th>
+    <th>Photo</th>
+  </tr>
+
+<% @recipes.each do |recipe| %>
+  <tr id="recipe_<%= recipe.id %>">
+    <td><%=h recipe.name %></td>
+    <td><%=h recipe.description %></td>
+    <td><%=h recipe.prepare_mode %></td>
+    <td><%=h recipe.rendiment %></td>
+    <td><%=h recipe.prepare_time %></td>
+    <td><%=h recipe.score %></td>
+    <td><% if recipe.photo.exists? then %>
+      <%= image_tag recipe.photo.url(:thumb) %>
+      <% else %>
+      <p>sem foto</p>
+    </td>
+<% end %>
+    <td><%= link_to t('labels.show'), recipe %></td>
+    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+    <td><%= link_to_remote "Destroy", :url => recipe_path(recipe), :confirm => "[i18n] Are you sure?", :method => :delete %></td>
   </tr>
 <% end %>
 </table>

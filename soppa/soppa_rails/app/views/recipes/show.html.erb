@@ -1,3 +1,9 @@
+<% if @recipe.photo.exists? then %>
+      <%= image_tag @recipe.photo.url(:medium) %>
+      <% else %>
+      <p>sem foto</p>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%=h @recipe.name %>

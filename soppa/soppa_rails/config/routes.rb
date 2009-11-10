@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :bookmark_items
+
+  map.resources :bookmarks
+
   map.resources :comments
 
   map.resources :ingredient_types
@@ -12,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :recipes
 
   map.resources :profiles
+  
+  map.resources :search
 
   
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -28,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.root :controller => "home"
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

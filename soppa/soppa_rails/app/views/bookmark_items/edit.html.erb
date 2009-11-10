@@ -1,0 +1,12 @@
+<h1>Editing bookmark_item</h1>
+
+<% form_for(@bookmark_item) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bookmark_item %> |
+<%= link_to 'Back', bookmark_items_path %>
