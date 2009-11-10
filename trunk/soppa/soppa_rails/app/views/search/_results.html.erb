@@ -1,0 +1,15 @@
+
+<%= "<h3>Usu&aacute;rios</h3>" unless @users.empty? %>
+<% for user in @users do  %>
+  <%= link_to user.profile.name, profile_path(user.profile) %><br />
+<% end %>
+
+<%= "<h3>Receitas</h3>" unless @recipes.empty? %>
+<% for recipe in @recipes do  %>
+  <%= link_to recipe.name, recipe_path(recipe) %><br />
+<% end %>
+
+<%= "<h3>Ingredientes</h3>" unless @ingredients.empty? %>
+<% for ingredient in @ingredients do  %>
+  <%= link_to ingredient.name, ingredient_path(ingredient) %><br />
+<% end %>

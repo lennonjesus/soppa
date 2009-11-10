@@ -1,0 +1,50 @@
+
+<% form_for(@recipe, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label t('labels.recipe.form.name') %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <hr />
+  Ingredientes <br />
+
+  <input type="text" id="ingredient_searcher" name="ingredient_searcher" />
+  <%= select_tag "profile[city_id]", options_from_collection_for_select(Ingredient.find(:all), 'id','name') %>
+  <input type="button" value="add" />
+
+  <hr />
+
+  <p>
+    <%= f.label :prepare_mode %><br />
+    <%= f.text_area :prepare_mode %>
+  </p>
+  <p>
+    <%= f.label :rendiment %><br />
+    <%= f.text_field :rendiment %>
+  </p>
+  <p>
+    <%= f.label :prepare_time %><br />
+    <%= f.datetime_select :prepare_time, :prompt => {:hour => "horas", :minute => "minutos"}, :order => [:hour, :minute] %>
+  </p>
+  <p>
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </p>
+  <p>
+    <%= f.label "Tipo de receita" %><br />
+    <%= select_tag "recipe[recipe_type_id]", options_from_collection_for_select(RecipeType.find(:all), 'id','name') %>
+  </p>
+  <p>
+    <%= f.label 'Foto' %><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>

@@ -8,7 +8,10 @@
 - adicionar seguranca em todos os controllers
 - tem algum problema com o cadastro de receitas referente ao tempo de preparo.
   Por exemplo, ao tentar cadastrar uma receita com 00 minutos, ocorre um erro.
-- a pagina de criacao/eciao de profiles esta exibindo todas as cidades disponiveis no sistema.
+- a pagina de criacao/edicao de profiles esta exibindo todas as cidades disponiveis no sistema.
   Isso esta gerando um problema de performance.
 - verificar possibilidade (tempo e conhecimento) de implementar tags para limpar a camada View
 - implementar a escolha de ingredientes a partir da pagina de criacao/edicao de receitas
+- nao permitir a exclusao de tipos que possuam associacao.
+  Por exemplo, um IngredientType nao pode ser excluido se estiver associado a um Ingredient
+- paginacao de resultados

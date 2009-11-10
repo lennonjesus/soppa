@@ -3,6 +3,12 @@ Funcionalidade: Gerenciar ingredientes
     Como um usuario
     Eu devo poder criar, visualizar e editar ingredientes
 
+    Cenario: Adicao de ingredientes
+        Dado que estou na pagina de ingredientes
+        E clico na opcao "New ingredient"
+        E preencho o formulario com o ingrediente Pimenta
+        Entao eu deveria poder visualizar o ingrediente "Pimenta"
+
     Cenario: Lista de ingredientes
         Dado que eu tenho os ingredientes Tomate, Cebola
         E eu estou na lista de ingredientes
