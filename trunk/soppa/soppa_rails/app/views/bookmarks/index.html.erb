@@ -9,7 +9,6 @@
 <% @bookmark_items.each do |item| %>
   <tr>
     <td></td>
-    <td><%= item.bookmark.user.login   %></td>
     <td><%= item.recipe.name   %></td>
     <td><%= link_to 'Show', recipe_path(item.recipe) %></td>
     <td><%= link_to 'Destroy', recipe_path(item.recipe), :confirm => 'Are you sure?', :method => :delete %></td>

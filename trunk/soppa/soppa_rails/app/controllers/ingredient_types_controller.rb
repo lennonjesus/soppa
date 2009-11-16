@@ -1,4 +1,7 @@
 class IngredientTypesController < ApplicationController
+
+  before_filter :login_required, :except => %w[index show]
+
   # GET /ingredient_types
   # GET /ingredient_types.xml
   def index

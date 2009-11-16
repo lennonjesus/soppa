@@ -13,16 +13,22 @@
     $("#search_box").focus();
 
     $("#search_box").keyup (function () {
-      $.ajax (
-        {
-           success: function(request) {
-             $('#search_results').html(request);
-           },
-           type: 'post',
-           url: '/search/all/' + $(this).val()
-         }
-      )
-    });
+
+      if (!$("#search_box").val() == "") {
+
+        $.ajax (
+          {
+             success: function(request) {
+               $('#search_results').html(request);
+            },
+            type: 'post',
+            url: '/search/all/' + $(this).val()
+          }
+        )
+      } else {
+        $('#search_results').html("");
+      }
+     });
 
   });
 
