@@ -3,17 +3,22 @@
 <input type="text" id="" name="" value="Implementar pesquisa..." /><input type="submit" value="pesquisar" /><br />
 
 <h3>Minhas receitas</h3>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Prepare mode</th>
-    <th>Rendiment</th>
-    <th>Prepare time</th>
-    <th>Score</th>
-    <th>Photo</th>
-  </tr>
 
+<% unless @my_recipes.empty?  %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Prepare mode</th>
+      <th>Rendiment</th>
+      <th>Prepare time</th>
+      <th>Score</th>
+      <th>Photo</th>
+    </tr>
+<% else %>
+    <%= "Voc&ecirc; ainda n&atilde;o criou nenhuma receita." %>
+<% end %>
+    
 <% @my_recipes.each do |recipe| %>
   <tr id="recipe_<%= recipe.id %>">
     <td><%=h recipe.name %></td>
@@ -62,7 +67,7 @@
       <p>sem foto</p>
     </td>
 <% end %>
-    <td><%= link_to t('labels.show'), recipe %></td>
+    <td><%= link_to t('labels.recipe.show'), recipe %></td>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
     <td><%= link_to_remote "Destroy", :url => recipe_path(recipe), :confirm => "[i18n] Are you sure?", :method => :delete %></td>
   </tr>

@@ -1,12 +1,13 @@
 class BookmarksController < ApplicationController
+
+  before_filter :login_required
+
   # GET /bookmarks
   # GET /bookmarks.xml
   def index
 
-
-    @bookmark = Bookmark.find_by_user_id 1
+    @bookmark = Bookmark.find_by_user_id current_user.id
     @bookmark_items = @bookmark.bookmark_items
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,67 +15,25 @@ class BookmarksController < ApplicationController
     end
   end
 
-  # GET /bookmarks/1
-  # GET /bookmarks/1.xml
-  def show
-    @bookmark = Bookmark.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @bookmark }
-    end
-  end
-
   # GET /bookmarks/new
   # GET /bookmarks/new.xml
   def new
-    @bookmark = Bookmark.new
+    recipe = Recipe.find params[:id] #OK!
+    bookmark = current_user.bookmark #OK!
+    bookmark_items = bookmark.bookmark_items
+    item = BookmarkItem.new :recipe => recipe
+
+    result = bookmark_items.recipe_id_eq item.recipe.id
+
+    bookmark_items << item if result.empty? # verifica se a receita
+                                            #ja nao havia sido favoritada
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @bookmark }
+      format.js  { render :partial => "bookmark_added" }
     end
   end
 
-  # GET /bookmarks/1/edit
-  def edit
-    @bookmark = Bookmark.find(params[:id])
-  end
-
-  # POST /bookmarks
-  # POST /bookmarks.xml
-  def create
-    @bookmark = Bookmark.new(params[:bookmark])
-
-    respond_to do |format|
-      if @bookmark.save
-        flash[:notice] = 'Bookmark was successfully created.'
-        format.html { redirect_to(@bookmark) }
-        format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /bookmarks/1
-  # PUT /bookmarks/1.xml
-  def update
-    @bookmark = Bookmark.find(params[:id])
-
-    respond_to do |format|
-      if @bookmark.update_attributes(params[:bookmark])
-        flash[:notice] = 'Bookmark was successfully updated.'
-        format.html { redirect_to(@bookmark) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
+  
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.xml
   def destroy

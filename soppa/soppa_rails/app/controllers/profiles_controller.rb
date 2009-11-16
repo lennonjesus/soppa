@@ -52,6 +52,10 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+
+        current_user.bookmark = Bookmark.new
+        current_user.save
+
         flash[:notice] = 'Perfil criado com sucesso'
         format.html { redirect_to(@profile) }
         format.xml  { render :xml => @profile, :status => :created, :location => @profile }
@@ -92,6 +96,7 @@ class ProfilesController < ApplicationController
   end
 
   def load_cities
+    puts "######################################"
     @cities = City.find_all_by_state_id(params[:id])
     render :partial => "cities"
   end

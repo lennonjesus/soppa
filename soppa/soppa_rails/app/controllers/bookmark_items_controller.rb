@@ -1,4 +1,7 @@
 class BookmarkItemsController < ApplicationController
+
+  before_filter :login_required, :except => %w[index show]
+
   # GET /bookmark_items
   # GET /bookmark_items.xml
   def index

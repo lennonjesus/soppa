@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_one   :profile
   has_many  :comments
   has_many  :recipes
-  has_many  :bookmarks
+  has_one :bookmark
 
   # Virtual attribute for the unencrypted password
   attr_accessor :password

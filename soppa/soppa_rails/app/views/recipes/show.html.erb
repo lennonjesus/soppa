@@ -1,3 +1,24 @@
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#lnk_add_to_bookmarks").click (function () {
+
+      $.ajax (
+        {
+           success: function(request) {
+             $('#result').html(request);
+           },
+           type: 'post',
+           url: '/bookmarks/new/<%= @recipe.id  %>'
+         }
+      )
+    });
+
+  });
+
+</script>
+
 <% if @recipe.photo.exists? then %>
       <%= image_tag @recipe.photo.url(:medium) %>
       <% else %>
@@ -37,3 +58,8 @@
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+<%= #link_to_remote  "Add to bookmarks",
+  #:update => "bookmarks",
+  #:url => { :controller => "bookmarks", :action => "new", :id => @recipe.id }
+%>
+<a href="#" id="lnk_add_to_bookmarks" >Add to bookmarks</a><span id="result"></span>

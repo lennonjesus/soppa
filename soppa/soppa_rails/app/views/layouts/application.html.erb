@@ -18,7 +18,7 @@
         <%= link_to t('menu.item.home'), :controller => "home" %>&nbsp;|&nbsp;
         <%= link_to t('menu.item.login'), :controller => "/login" unless logged_in? %>
         <%= link_to t('menu.item.my_profile'), current_user.profile if logged_in? and current_user.profile != nil %>
-        <%= link_to t('menu.item.my_favorites'), bookmarks_path if logged_in? %>
+        <%= link_to t('menu.item.my_favorites'), bookmarks_path if logged_in?  and current_user.profile != nil %>
         <%= link_to t('menu.item.create_profile'), new_profile_path if logged_in? and current_user.profile == nil %>
         <%= link_to t('menu.item.people'), :controller => "/profiles" if logged_in? %>
         <%= link_to t('menu.item.recipes'), :controller => "/recipes" if logged_in? %>
