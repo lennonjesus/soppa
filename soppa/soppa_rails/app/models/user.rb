@@ -6,6 +6,15 @@ class User < ActiveRecord::Base
   has_many  :recipes
   has_one :bookmark
 
+  #Auto-relacionamento para criar amiguinhos... :p (Exclua caso dê errado!)
+
+  has_many :relations_to, :foreign_key => 'user_id',  :class_name => 'Friend'
+  has_many :relations_from, :foreign_key => 'friend_id', :class_name => 'Friend'
+
+  has_many :linked_to, :through => :relations_to, :source => :friend
+  has_many :linked_from, :through => :relations_from, :source => :user
+  
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
