@@ -1,6 +1,7 @@
 class RecipeItem < ActiveRecord::Base
 
   belongs_to :recipe
-  has_one :ingredient
+  belongs_to :ingredient
+  belongs_to :unit
 
 end

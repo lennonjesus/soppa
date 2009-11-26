@@ -1,7 +1,8 @@
 class Recipe < ActiveRecord::Base
 
-  belongs_to :recipe_type
   has_many :recipe_items
+  has_many :ingredients, :through => :recipe_items
+  belongs_to :recipe_type
   has_many :comments
   belongs_to :user
   has_many :bookmark_items

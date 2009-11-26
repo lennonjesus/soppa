@@ -14,11 +14,17 @@
   <hr />
   Ingredientes <br />
 
-  <input type="text" id="ingredient_searcher" name="ingredient_searcher" />
-  <%= select_tag "profile[city_id]", options_from_collection_for_select(Ingredient.find(:all), 'id','name') %>
-  <input type="button" value="add" />
+  <p>
+    <% for recipe_item in @recipe.recipe_items %>
+      <%= check_box_tag "recipe[ingredient_ids][]", recipe_item.id, @recipe.recipe_items.include?(recipe_item) %>
+      <%= recipe_item.ingredient.name %>
+      <input type="text" name="recipe_item_quantities[]" value="<%= recipe_item.quantity  %> " >
+      <%= select_tag "recipe_item_units[]", options_from_collection_for_select(Unit.find(:all), 'id','name') %>
+      <br />
 
-  <hr />
+    <% end %>
+
+  </p>
 
   <p>
     <%= f.label :prepare_mode %><br />

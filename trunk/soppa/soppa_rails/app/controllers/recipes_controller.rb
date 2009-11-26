@@ -74,6 +74,22 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
 
+    #Gambi Pattern
+
+    quantities = params[:recipe_item_quantities]
+    units = params[:recipe_item_units]
+
+    index = 0
+
+    @recipe.recipe_items.each do |item|
+      item.quantity = quantities[index]
+      item.unit = Unit.find units[index]
+
+      item.save!
+
+      index = index + 1
+    end
+
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
         flash[:notice] = 'Recipe was successfully updated.'
