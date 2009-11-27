@@ -1,0 +1,63 @@
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#estados").change (function () {
+      $.ajax (
+        {
+           success: function(request) {
+             $('#market_city_id').html(request);
+           },
+           type: 'post',
+           url: '/cities/load_cities/' + $(this).val()
+         }
+      )
+    });
+
+  });
+
+</script>
+
+<% form_for(@market, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :about %><br />
+    <%= f.text_area :about %>
+  </p>
+  <p>
+    <%= f.label :cnpj %><br />
+    <%= f.text_field :cnpj %>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </p>
+  <p>
+    <%= f.label "Estado" %><br />
+    <select id="estados" onchange="" >
+      <option value="0">Selecione um estado</option>
+      <%= options_from_collection_for_select(State.find(:all), 'id','acronym') %>
+    </select>
+  </p>
+  <p>
+    <%= f.label "Cidade" %><br />
+    <%= select_tag "market[city_id]", ("<option value=#{@market.city.id}>#{@market.city.name}</option>" unless @market.city == nil), :disabled => false  %>
+
+  </p>
+  <p>
+    <%= f.label :site_url %><br />
+    <%= f.text_field :site_url %>
+  </p>
+  <p>
+    <%= f.label 'Foto' %><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>

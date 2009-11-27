@@ -1,0 +1,38 @@
+<h1>Listing markets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>About</th>
+    <th>Cnpj</th>
+    <th>Active</th>
+    <th>City</th>
+    <th>Site url</th>
+    <th>Foto</th>
+  </tr>
+
+<% @markets.each do |market| %>
+  <tr>
+    <td><%=h market.name %></td>
+    <td><%=h market.about %></td>
+    <td><%=h market.cnpj %></td>
+    <td><%=h market.active %></td>
+    <td><%=h market.city %></td>
+    <td><%=h market.site_url %></td>
+    <td>
+      <% if market.photo.exists? then %>
+        <%= image_tag market.photo.url(:thumb) %>
+      <% else %>
+        <p>sem foto</p>
+      <% end %>
+    </td>
+    <td><%= link_to 'Show', market %></td>
+    <td><%= link_to 'Edit', edit_market_path(market) %></td>
+    <td><%= link_to 'Destroy', market, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New market', new_market_path %>

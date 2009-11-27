@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @market.name %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%=h @market.about %>
+</p>
+
+<p>
+  <b>Cnpj:</b>
+  <%=h @market.cnpj %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @market.active %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @market.city %>
+</p>
+
+<p>
+  <b>Site url:</b>
+  <%=h @market.site_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_market_path(@market) %> |
+<%= link_to 'Back', markets_path %>

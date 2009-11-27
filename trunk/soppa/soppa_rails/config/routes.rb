@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :markets
+  
+  map.resources :cities
+
   map.resources :bookmark_items
 
   map.resources :bookmarks

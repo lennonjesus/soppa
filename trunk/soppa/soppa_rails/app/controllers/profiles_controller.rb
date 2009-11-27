@@ -95,9 +95,4 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def load_cities
-    puts "######################################"
-    @cities = City.find_all_by_state_id(params[:id])
-    render :partial => "cities"
-  end
 end

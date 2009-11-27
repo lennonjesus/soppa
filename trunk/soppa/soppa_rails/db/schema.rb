@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091123013024) do
+ActiveRecord::Schema.define(:version => 20091127031544) do
 
   create_table "bookmark_items", :force => true do |t|
     t.integer  "bookmark_id"
@@ -63,6 +63,32 @@ ActiveRecord::Schema.define(:version => 20091123013024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ingredient_type_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+  end
+
+  create_table "market_items", :force => true do |t|
+    t.integer  "ingredient_id"
+    t.integer  "market_id"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "markets", :force => true do |t|
+    t.string   "name"
+    t.text     "about"
+    t.string   "cnpj"
+    t.boolean  "active"
+    t.integer  "city_id"
+    t.string   "adress"
+    t.string   "site_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|
