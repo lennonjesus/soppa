@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many  :comments
   has_many  :recipes
   has_one :bookmark
+  has_many :markets
 
   #Auto-relacionamento para criar amiguinhos... :p (Exclua caso dê errado!)
 

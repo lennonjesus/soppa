@@ -21,10 +21,12 @@
         <%= link_to t('menu.item.my_favorites'), bookmarks_path if logged_in?  and current_user.profile != nil %>
         <%= link_to t('menu.item.create_profile'), new_profile_path if logged_in? and current_user.profile == nil %>
         <%= link_to t('menu.item.people'), :controller => "/profiles" if logged_in? %>
+        <%= link_to t('menu.item.markets'), :controller => "/markets" if logged_in? %>
         <%= link_to t('menu.item.recipes'), :controller => "/recipes" if logged_in? %>
         <%= link_to t('menu.item.ingredients'), :controller => "/ingredients" if logged_in? %>
         <%= link_to t('menu.item.recipe_types'), :controller => "/recipe_types" if logged_in? %>
         <%= link_to t('menu.item.ingredient_types'), :controller => "/ingredient_types" if logged_in? %>
+        <%= link_to t('menu.item.create_market'), new_market_path if logged_in? %>
         <%= link_to t('menu.item.logout'), :controller => "/logout" if logged_in? %>
         <%= link_to t('menu.item.signup'), :controller => "/signup" unless logged_in? %>
         <%= current_user.profile.name if logged_in? and current_user.profile != nil %>

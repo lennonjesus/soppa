@@ -1,4 +1,4 @@
-<% form_for(@ingredient) do |f| %>
+<% form_for(@ingredient, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -12,6 +12,10 @@
   <p>
     <%= f.label "Tipo" %><br />
     <%= select_tag "ingredient[ingredient_type_id]", options_from_collection_for_select(IngredientType.find(:all), 'id','name', @ingredient_type.id) %>
+  </p>
+  <p>
+    <%= f.label 'Foto' %><br />
+    <%= f.file_field :photo %>
   </p>
   <p>
     <%= f.submit 'Save' %>
