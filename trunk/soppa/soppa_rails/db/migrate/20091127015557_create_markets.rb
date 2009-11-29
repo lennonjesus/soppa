@@ -6,6 +6,7 @@ class CreateMarkets < ActiveRecord::Migration
       t.string :cnpj
       t.boolean :active
       t.references :city
+      t.references :user
       t.string :adress
       t.string :site_url
 

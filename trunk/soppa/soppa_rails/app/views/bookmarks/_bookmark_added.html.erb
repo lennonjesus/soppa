@@ -1,1 +1,1 @@
-<%= "Ok!" %>
+<%= link_to_remote image_tag("/images/yellow_star.png"), :update => "result", :url => "/bookmarks/destroy/" + @recipe.id.to_s %>

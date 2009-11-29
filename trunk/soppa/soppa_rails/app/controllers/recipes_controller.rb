@@ -53,13 +53,31 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
     @recipe.user = current_user
 
+    #Gambi Pattern
+
+    quantities = params[:recipe_item_quantities]
+    units = params[:recipe_item_units]
+
+    
+
     respond_to do |format|
       if @recipe.save
         flash[:notice] = 'Recipe was successfully created.'
 
-#        format.html { render :action => "create_step2" }
+        index = 0
 
-#        redirect_to "step2"
+        puts @recipe.recipe_items
+
+        @recipe.recipe_items.each do |item|
+
+          item.quantity = quantities[index]
+          item.unit = Unit.find units[index]
+
+          item.save!
+
+          index = index + 1
+        end
+
         format.html { redirect_to(@recipe) }
         format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
       else
@@ -79,19 +97,25 @@ class RecipesController < ApplicationController
     quantities = params[:recipe_item_quantities]
     units = params[:recipe_item_units]
 
-    index = 0
-
-    @recipe.recipe_items.each do |item|
-      item.quantity = quantities[index]
-      item.unit = Unit.find units[index]
-
-      item.save!
-
-      index = index + 1
-    end
+    
 
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
+
+        index = 0
+
+        puts @recipe.recipe_items
+
+        @recipe.recipe_items.each do |item|
+
+          item.quantity = quantities[index]
+          item.unit = Unit.find units[index]
+
+          item.save!
+
+          index = index + 1
+        end
+
         flash[:notice] = 'Recipe was successfully updated.'
         format.html { redirect_to(@recipe) }
         format.xml  { head :ok }

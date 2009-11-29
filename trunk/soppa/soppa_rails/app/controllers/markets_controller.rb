@@ -2,7 +2,7 @@ class MarketsController < ApplicationController
   # GET /markets
   # GET /markets.xml
   def index
-    @markets = Market.all
+    @markets = Market.active_eq 'f'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +41,7 @@ class MarketsController < ApplicationController
   # POST /markets.xml
   def create
     @market = Market.new(params[:market])
+    @market.user = current_user
 
     respond_to do |format|
       if @market.save

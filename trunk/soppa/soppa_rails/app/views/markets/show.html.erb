@@ -20,12 +20,12 @@
 
 <p>
   <b>City:</b>
-  <%=h @market.city %>
+  <%=h @market.city.name %>
 </p>
 
 <p>
   <b>Site url:</b>
-  <%=h @market.site_url %>
+  <%= link_to @market.site_url, @market.site_url %>
 </p>
 
 

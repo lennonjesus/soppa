@@ -87,4 +87,12 @@ class IngredientsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def search
+    query = params[:id]
+
+    @ingredients = Ingredient.name_like_all_or_description_like query
+
+    render :partial => "results"
+  end
 end
