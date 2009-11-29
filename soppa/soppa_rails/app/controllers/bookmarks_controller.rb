@@ -18,10 +18,10 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new
   # GET /bookmarks/new.xml
   def new
-    recipe = Recipe.find params[:id] #OK!
+    @recipe = Recipe.find params[:id] #OK!
     bookmark = current_user.bookmark #OK!
     bookmark_items = bookmark.bookmark_items
-    item = BookmarkItem.new :recipe => recipe
+    item = BookmarkItem.new :recipe => @recipe
 
     result = bookmark_items.recipe_id_eq item.recipe.id
 
@@ -37,12 +37,15 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.xml
   def destroy
-    @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
 
+    @recipe = Recipe.find params[:id]
+
+    result = current_user.bookmark.bookmark_items.recipe_id_eq @recipe.id
+    
+    result.first.delete unless result.empty?
+    
     respond_to do |format|
-      format.html { redirect_to(bookmarks_url) }
-      format.xml  { head :ok }
+      format.js  { render :partial => "bookmark_removed" }
     end
   end
 end

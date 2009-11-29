@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20091127031544) do
     t.string   "cnpj"
     t.boolean  "active"
     t.integer  "city_id"
+    t.integer  "user_id"
     t.string   "adress"
     t.string   "site_url"
     t.datetime "created_at"

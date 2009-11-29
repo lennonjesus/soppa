@@ -1,3 +1,71 @@
+<script type="text/javascript" >
+
+      $().ready(function () {
+
+        $("#txt_search_ingredients").keyup (function () {
+
+          if (!$("#txt_search_ingredients").val() == "") {
+
+            $.ajax (
+              {
+                 success: function(request) {
+                   $('#ingredients_search_results').html(request);
+                },
+                type: 'post',
+                url: '/ingredients/search/' + $(this).val()
+              }
+            )
+          } else {
+            $('#ingredients_search_results').html("");
+          }
+         });
+
+         $(".ckb_ingredient").click(function () {
+
+          //GAMBI Pattern
+          $($(this).parent(".recipe_item")).each(function (index, item) {
+            id = item.id.substr(12);
+          })
+
+          $.ajax (
+              {
+                 success: function() {
+
+                  $("#recipe_item_" + id).hide()
+
+                },
+                type: 'delete',
+                url: '/recipe_items/destroy/' + id
+              }
+            )
+
+         });
+
+         $(".ckb_new_ingredient_item").click(function () {
+
+          //GAMBI Pattern
+          $($(this).parent(".recipe_item")).each(function (index, item) {
+            id = item.id.substr(12);
+          })
+
+          $.ajax (
+              {
+                 success: function() {
+
+                  $("#recipe_item_" + id).hide()
+
+                },
+                type: 'delete',
+                url: '/recipe_items/destroy/' + id
+              }
+            )
+
+         });
+
+      });
+
+    </script>
+
 
 <% form_for(@recipe, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
@@ -14,16 +82,23 @@
   <hr />
   Ingredientes <br />
 
+  <input type="text" id="txt_search_ingredients" />
+
+  <div id="ingredients_search_results"></div>
+
   <p>
-    <% for recipe_item in @recipe.recipe_items %>
-      <%= check_box_tag "recipe[ingredient_ids][]", recipe_item.id, @recipe.recipe_items.include?(recipe_item) %>
-      <%= recipe_item.ingredient.name %>
-      <input type="text" name="recipe_item_quantities[]" value="<%= recipe_item.quantity  %> " >
-      <%= select_tag "recipe_item_units[]", options_from_collection_for_select(Unit.find(:all), 'id','name') %>
-      <br />
-
-    <% end %>
-
+    <fieldset id="fds_ingredients">
+      <legend>Ingredientes</legend>
+      <% for recipe_item in @recipe.recipe_items %>
+        <div id="recipe_item_<%= recipe_item.id %>" class="recipe_item" >
+          <%= check_box_tag "recipe[ingredient_ids][]", recipe_item.ingredient.id, @recipe.recipe_items.include?(recipe_item), :class => "ckb_ingredient" %>
+          <%= recipe_item.ingredient.name %>
+          <input type="text" name="recipe_item_quantities[]" value="<%= recipe_item.quantity  %>" >
+          <%= select_tag "recipe_item_units[]", options_from_collection_for_select(Unit.find(:all), 'id','name', recipe_item.unit.id) %>
+        </div>
+        <br />
+      <% end %>
+    </fieldset>
   </p>
 
   <p>

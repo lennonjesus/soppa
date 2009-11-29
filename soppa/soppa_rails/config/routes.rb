@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :friends
+
   map.resources :markets
   
   map.resources :cities

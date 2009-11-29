@@ -2,17 +2,6 @@ class ProfilesController < ApplicationController
 
   before_filter :login_required, :except => %w[index show]
 
-  # GET /profiles
-  # GET /profiles.xml
-  def index
-    @profiles = Profile.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @profiles }
-    end
-  end
-
   # GET /profiles/1
   # GET /profiles/1.xml
   def show

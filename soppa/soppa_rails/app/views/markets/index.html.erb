@@ -17,8 +17,8 @@
     <td><%=h market.about %></td>
     <td><%=h market.cnpj %></td>
     <td><%=h market.active %></td>
-    <td><%=h market.city %></td>
-    <td><%=h market.site_url %></td>
+    <td><%=h market.city.name %></td>
+    <td><%= link_to market.site_url, market.site_url %></td>
     <td>
       <% if market.photo.exists? then %>
         <%= image_tag market.photo.url(:thumb) %>
