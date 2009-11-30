@@ -1,5 +1,6 @@
 <% #TODO LENNON: Remover link_to_remote %>
 
+
 <h3>
   <%=h @profile.name %>
 </h3>
@@ -12,11 +13,69 @@
 
 <% if current_user.linked_to.rindex @profile.user %>
   <%= link_to_remote "Remove friend", :update => "result", :url => "/friends/remove_friend/" + @profile.user.id.to_s %>
-<% else %>
+<% elsif not @profile.user == current_user %>
   <%= link_to_remote "Add friend", :update => "result", :url => "/friends/add_friend/" + @profile.user.id.to_s %>
 <% end %>
 
 <span id="result"></span>
 
-<%= link_to 'Editar', edit_profile_path(@profile) if can_edit_profile? @profile %> |
-<%= link_to 'Voltar', profiles_path %>
+
+<% if can_edit_profile? @profile %>
+  <input id="btn_edit_my_profile" type="button" value="Editar" class="fg-button ui-state-default ui-corner-all" />
+<% end %>
+
+
+
+<div id="pnl_edit_profile"><img src="/images/loading_green.gif" /></div>
+
+<script type="text/javascript" >
+
+    $().ready(function () {
+
+      $('#pnl_edit_profile').dialog({
+                autoOpen: false,
+                position: [50, 50],
+                modal: false,
+                title: "Editar perfil",
+                buttons: {
+                        "Ok": function() {
+                                $(this).dialog("close");
+                        }
+                }
+        });
+
+
+
+        $("#btn_edit_my_profile").click(function () {
+
+          $('#pnl_edit_profile').dialog('open');
+
+          $.ajax (
+            {
+               success: function(request) {
+                 $('#pnl_edit_profile').html(request);
+               },
+               type: 'get',
+               url: '/profiles/<%= current_user.profile.id if logged_in?  %>/edit'
+             }
+          );
+
+          return false;
+
+          }).hover(
+            function(){
+                    $(this).addClass("ui-state-hover");
+            },
+            function(){
+                    $(this).removeClass("ui-state-hover");
+            }
+          ).mousedown(function(){
+          $(this).addClass("ui-state-active");
+          }).mouseup(function(){
+          $(this).removeClass("ui-state-active");
+        });
+
+    });
+
+
+</script>

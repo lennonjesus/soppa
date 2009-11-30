@@ -1,0 +1,68 @@
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable">
+<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+  <span id="ui-dialog-title-dialog" class="ui-dialog-title">Dialog title</span>
+  <a class="ui-dialog-titlebar-close ui-corner-all" href="#"><span class="ui-icon ui-icon-closethick">close</span></a>
+</div>
+<div style="height: 200px; min-height: 109px; width: auto;" class="ui-dialog-content ui-widget-content" id="dialog">
+  <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+     <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+       <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+         <a href="#tabs-1">Nunc tincidunt</a>
+       </li>
+       <li class="ui-state-default ui-corner-top">
+         <a href="#tabs-2">Proin dolor</a>
+       </li>
+
+     </ul>
+    <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-1">
+          <p>Tab one content goes here.</p>
+       </div>
+       <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-2">
+          <p>Tab two content goes here.</p>
+       </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<hr />
+      <input type="text" id="search_box" name="" /><input type="submit" value="pesquisar" /><br />
+      <div id="search_results"></div>
+      <hr />
+
+      <div id="content">
+
+        <%= yield %>
+
+      </div>
+
+      <div id="footer">
+        &copy; 2009 SOPPA
+      </div>
+
+
+
+          <li><%= link_to t('menu.item.login'), :controller => "/login" unless logged_in? %></li>
+          <li><%= link_to t('menu.item.my_profile'), current_user.profile if logged_in? and current_user.profile != nil %></li>
+          <li><%= link_to t('menu.item.my_favorites'), bookmarks_path if logged_in?  and current_user.profile != nil %></li>
+          <li><%= link_to t('menu.item.create_profile'), new_profile_path if logged_in? and current_user.profile == nil %></li>
+          <li><%= link_to t('menu.item.people'), :controller => "/friends" if logged_in? %></li>
+
+
+
+<li><%= link_to t('menu.item.home'), :controller => "home" %></li>
+          <li><%= link_to t('menu.item.markets'), :controller => "/markets" if logged_in? %></li>
+          <li><%= link_to t('menu.item.recipes'), :controller => "/recipes" if logged_in? %></li>
+          <li><%= link_to t('menu.item.ingredients'), :controller => "/ingredients" if logged_in? %></li>
+          <li><%= link_to t('menu.item.recipe_types'), :controller => "/recipe_types" if logged_in? %></li>
+          <li><%= link_to t('menu.item.ingredient_types'), :controller => "/ingredient_types" if logged_in? %></li>
+          <li><%= link_to t('menu.item.create_market'), new_market_path if logged_in? %></li>
+          <li><%= link_to t('menu.item.logout'), :controller => "/logout" if logged_in? %></li>
+          <li>
+            <%= link_to t('menu.item.signup'), :controller => "/signup" unless logged_in? %>
+            <%= current_user.profile.name if logged_in? and current_user.profile != nil %>
+          </li>
+          <li><a id ="test" href="#">Teste Dialog</a></li>
+          <li><a id ="test" href="#tabs-1">Teste Tabs</a></li>

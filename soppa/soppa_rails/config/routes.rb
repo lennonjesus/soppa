@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.connect '/bills/generate_bill/:banco', :controller => 'bills', :action => 'generate_bill'
+
   map.resources :friends
 
   map.resources :markets
