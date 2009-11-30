@@ -1,4 +1,154 @@
-<h1>&Eacute; SOPPA! Adicione seu tempero.</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<br />
-<br />
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>Soppa - Adicione seu tempero!</title>
+    <link type="text/css" href="/stylesheets/jqueryui/south-street/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript" src="javascripts/jrails.js"></script>
+
+    <script type="text/javascript" >
+
+      $().ready(function () {
+
+      $(".alert_box").hide(6000, function() {
+
+      });
+
+        $("#search_box").focus();
+
+        $("#search_box").keyup (function () {
+
+          if (!$("#search_box").val() == "") {
+
+            $.ajax (
+              {
+                 success: function(request) {
+                   $('#search_results').html(request);
+                },
+                type: 'post',
+                url: '/search/all/' + $(this).val()
+              }
+            )
+          } else {
+            $('#search_results').html("");
+          }
+         });
+
+          $('#tabs').tabs({
+            fx: { opacity: 'toggle' },
+            spinner: "Aguarde..."
+
+          });
+
+
+
+
+
+          
+
+      });
+
+    </script>
+
+  </head>
+
+  <body>
+    <div id="page">
+
+        <%= "<p class=\"alert_box\" style=\"color: green\">#{flash[:notice]}</p>" if flash[:notice] %>
+
+        <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+           <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+                  <a href="#soppa_tab">SOPPA</a>
+                </li>
+              <% if not logged_in? %>
+                <li class="ui-state-default ui-corner-top">
+                  <%= link_to t('menu.item.login'), :controller => "/login" %>
+                </li>
+
+                <li class="ui-state-default ui-corner-top">
+                  <%= link_to t('menu.item.signup'), :controller => "/signup" unless logged_in? %>
+                </li>
+              <% end %>
+
+              <% if logged_in? and current_user.profile != nil %>
+                <li class="ui-state-default ui-corner-top">
+                  <%= link_to t('menu.item.my_profile'), current_user.profile %>
+                </li>
+
+               <li class="ui-state-default ui-corner-top">
+                 <a href="<%= bookmarks_path  %>"><%= t('menu.item.my_favorites')  %></a>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.people'), :controller => "/friends" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                 <%= link_to t('menu.item.markets'), :controller => "/markets" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.recipes'), :controller => "/recipes" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.ingredients'), :controller => "/ingredients" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.recipe_types'), :controller => "/recipe_types" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.ingredient_types'), :controller => "/ingredient_types" %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                <%= link_to t('menu.item.create_market'), new_market_path %>
+               </li>
+
+               <li class="ui-state-default ui-corner-top">
+                 <a href="#logout_tab" ><%= t('menu.item.logout') %></a>
+               </li>
+
+
+
+              <% elsif logged_in? and current_user.profile == nil %>
+                  <%= link_to t('menu.item.create_profile') %>
+              <% end %>
+
+
+
+
+
+
+           </ul>
+
+          <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="soppa_tab">
+            <p>Adicione seu tempero.</p>
+            <p><input id="test" type="button" value="Teste" class="fg-button ui-state-default ui-corner-all" /></p>
+          </div>
+
+          <% if logged_in? %>
+            <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="logout_tab">
+              <p>Logout <%= link_to t('menu.item.logout'), :controller => "/logout" %></p>
+            </div>
+          <% end %>
+        </div>
+
+
+     </div>
+
+    
+
+
+
+
+  </body>
+</html>

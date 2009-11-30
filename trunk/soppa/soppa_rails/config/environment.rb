@@ -22,7 +22,11 @@ Rails::Initializer.run do |config|
 #    config.gem "ruby-openid", :lib => "ruby-openid", :version => "2.1.17"
 #    config.gem "ruby-openid", :lib => "ruby-openid", :version => "2.1.17"
   config.gem "searchlogic"
-  config.gem "justinfrench-formtastic", :version => "0.2.4", :lib => 'formtastic', :source  => 'http://gems.github.com'
+  #config.gem "justinfrench-formtastic", :version => "0.2.4", :lib => 'formtastic', :source  => 'http://gems.github.com'
+  config.gem "brcobranca"
+  config.gem "rghost"
+  config.gem "rghost_barcode"
+  config.gem "parseline"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

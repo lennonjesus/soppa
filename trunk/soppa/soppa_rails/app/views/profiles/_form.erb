@@ -1,22 +1,4 @@
-<script type="text/javascript" >
 
-  $().ready(function () {
-
-    $("#estados").change (function () {
-      $.ajax (
-        {
-           success: function(request) {
-             $('#profile_city_id').html(request);
-           },
-           type: 'post',
-           url: '/cities/load_cities/' + $(this).val()
-         }
-      )
-    });
-
-  });
-
-</script>
 
 <% form_for(@profile,:html => { :multipart => true }) do |f| %>
   
@@ -50,3 +32,53 @@
     <%= f.submit 'Salvar' %>
   </p>
 <% end %>
+
+
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#estados").change (function () {
+      $.ajax (
+        {
+           success: function(request) {
+             $('#profile_city_id').html(request);
+           },
+           type: 'post',
+           url: '/cities/load_cities/' + $(this).val()
+         }
+      )
+    });
+
+    $("#btn_save_profile").click(function () {
+
+          $('#pnl_edit_profile').dialog('open');
+
+          $.ajax (
+            {
+               success: function(request) {
+                 $('#pnl_edit_profile').html(request);
+               },
+               type: 'get',
+               url: '/profiles/<%= current_user.profile.id if logged_in?  %>/edit'
+             }
+          );
+
+          return false;
+
+          }).hover(
+            function(){
+                    $(this).addClass("ui-state-hover");
+            },
+            function(){
+                    $(this).removeClass("ui-state-hover");
+            }
+          ).mousedown(function(){
+          $(this).addClass("ui-state-active");
+          }).mouseup(function(){
+          $(this).removeClass("ui-state-active");
+        });
+
+  });
+
+</script>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091127031544) do
+ActiveRecord::Schema.define(:version => 20091130001839) do
 
   create_table "bookmark_items", :force => true do |t|
     t.integer  "bookmark_id"

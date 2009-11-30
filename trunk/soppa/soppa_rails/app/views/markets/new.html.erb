@@ -1,5 +1,35 @@
 <h1>New market</h1>
 
-<%= render :partial => "form" %>
+  <div id="pnl_new_market_info">
+    
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
+      <p>A ligeira raposa marrom ataca o cão preguiçoso.</p>
 
-<%= link_to 'Back', markets_path %>
+      <div id="pnl_new_market_info_buttons">
+        <input type="button" id="btn_show_frm_new_market" class="ui-state-default ui-corner-all" value="Eu concordo!" />
+        <input type="button" id="btn_cancel_frm_new_market" class="ui-state-default ui-corner-all" value="Eu não concordo!" />
+      </div>
+  </div>
+      <div id="frm_new_market" class="ui-helper-hidden">
+        <%= render :partial => "form" %>
+      </div>
+
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $("#btn_show_frm_new_market").click(function () {
+      $("#pnl_new_market_info_buttons").hide(3000);
+      $("#frm_new_market").show(3000);
+    });
+
+  });
+
+</script>
