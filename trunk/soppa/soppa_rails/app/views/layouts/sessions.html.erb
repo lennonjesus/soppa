@@ -1,0 +1,25 @@
+<%= yield %>
+<%= render "layouts/global_js" %>
+<script type="text/javascript" >
+
+  $(function() {
+    alert("carregando layout de sessions");
+
+    $(".button").hover(
+      function(){
+        $(this).addClass("ui-state-hover");
+      },
+      function(){
+        $(this).removeClass("ui-state-hover");
+      }
+    ).mousedown(function(){
+      $(this).addClass("ui-state-active");
+    }).mouseup(function(){
+      $(this).removeClass("ui-state-active");
+    });
+
+    
+
+  });
+
+</script>
