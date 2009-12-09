@@ -1,0 +1,137 @@
+<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="menu">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+      <a href="#soppa_tab">SOPPA</a>
+    </li>
+    <% if not logged_in? %>
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.login'), :controller => "/login" %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.signup'), :controller => "/signup" unless logged_in? %>
+      </li>
+    <% end %>
+
+    <% if logged_in? and current_user.profile != nil %>
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.my_profile'), current_user.profile %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <a href="<%= bookmarks_path  %>"><%= t('menu.item.my_favorites')  %></a>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.people'), :controller => "/friends" %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.markets'), :controller => "/markets" %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.recipes'), :controller => "/recipes" %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.ingredients'), :controller => "/ingredients" %>
+      </li>
+      <!--
+            <li class="ui-state-default ui-corner-top">
+      <%= link_to t('menu.item.recipe_types'), :controller => "/recipe_types" %>
+            </li>
+
+            <li class="ui-state-default ui-corner-top">
+      <%= link_to t('menu.item.ingredient_types'), :controller => "/ingredient_types" %>
+            </li>
+      -->
+      <li class="ui-state-default ui-corner-top">
+        <%= link_to t('menu.item.create_market'), new_market_path %>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <a href="#logout_tab" ><%= t('menu.item.logout') %></a>
+      </li>
+
+      <li class="ui-state-default ui-corner-top">
+        <a href="#admin_tab" ><%= t('menu.item.admin') %></a>
+      </li>
+
+    <% elsif logged_in? and current_user.profile == nil %>
+      <%= link_to t('menu.item.create_profile') %>
+    <% end %>
+
+  </ul>
+
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="soppa_tab">
+    <p>Adicione seu tempero.</p>
+    <%= "<h3>Meus amigos</h3>" unless @friends.empty? %>
+    <ul class="mycarousel jcarousel-skin-tango">
+      <% for friend in @friends do  %>
+        <li><%= link_to friend.profile.name, profile_path(friend.profile) %></li>
+      <% end %>
+    </ul>
+
+    <%= "<h3>Receitas</h3>" unless @recipes.empty? %>
+    <ul class="mycarousel jcarousel-skin-tango">
+      <% for recipe in @recipes do  %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+
+    <%= "<h3>Ingredientes</h3>" unless @ingredients.empty? %>
+    <ul class="mycarousel jcarousel-skin-tango">
+      <% for ingredient in @ingredients do  %>
+        <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+      <% end %>
+    </ul>
+    
+  </div>
+
+  <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="admin_tab">
+    <p>
+      <input id="btn_manage_ingredient_types" type="button" value="<%= t('menu.item.ingredient_types') %>" class="fg-button ui-state-default ui-corner-all" />
+      <input id="btn_manage_recipe_types" type="button" value="<%= t('menu.item.recipe_types') %>" class="fg-button ui-state-default ui-corner-all" />
+      <input id="btn_manage_inactive_markets" type="button" value="<%= t('menu.item.inactive_markets') %>" class="fg-button ui-state-default ui-corner-all" />
+    </p>
+  </div>
+
+  <% if logged_in? %>
+    <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="logout_tab">
+      <p>Logout <%= link_to t('menu.item.logout'), :controller => "/logout" %></p>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript" >
+
+  function mycarousel_initCallback(carousel)
+  {
+      // Disable autoscrolling if the user clicks the prev or next button.
+      carousel.buttonNext.bind('click', function() {
+          carousel.startAuto(0);
+      });
+
+      carousel.buttonPrev.bind('click', function() {
+          carousel.startAuto(0);
+      });
+
+      // Pause autoscrolling if the user moves with the cursor over the clip.
+      carousel.clip.hover(function() {
+          carousel.stopAuto();
+      }, function() {
+          carousel.startAuto();
+      });
+  };
+
+  jQuery(document).ready(function() {
+
+      jQuery('.mycarousel').jcarousel({
+          auto: 1,
+          wrap: 'last',
+          initCallback: mycarousel_initCallback
+      });
+  });
+
+</script>
