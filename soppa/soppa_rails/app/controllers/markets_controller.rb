@@ -1,4 +1,11 @@
+#
+# Classe responsavel pela logica relacionada aos mercados
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class MarketsController < ApplicationController
+
   # GET /markets
   # GET /markets.xml
   def index
@@ -42,15 +49,19 @@ class MarketsController < ApplicationController
   def create
     @market = Market.new(params[:market])
     @market.user = current_user
+    @market.active = false
 
     respond_to do |format|
       if @market.save
         flash[:notice] = 'Market was successfully created.'
         format.html { redirect_to(@market) }
         format.xml  { render :xml => @market, :status => :created, :location => @market }
+#        format.js  { render :partial => "market_saved" }
+        format.js  { redirect_to "/bills" }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @market.errors, :status => :unprocessable_entity }
+        format.js  { render :partial => "market_not_saved" }
       end
     end
   end

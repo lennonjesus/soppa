@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela logica relacionada aos perfis dos usuarios do sistema
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class ProfilesController < ApplicationController
 
   before_filter :login_required, :except => %w[index show]

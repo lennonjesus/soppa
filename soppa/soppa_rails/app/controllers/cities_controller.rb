@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela logica relacionada as cidades
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class CitiesController < ApplicationController
 
   def load_cities

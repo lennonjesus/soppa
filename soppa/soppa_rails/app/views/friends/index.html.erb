@@ -1,16 +1,19 @@
-<h1><%= t '.title' %></h1>
+<h1><%= t 'titles.friends' %></h1>
 
 <% @friends.each do |friend| %>
-  <div class="profile" >
-    
+  <div id="profile_<%= friend.profile.id %>" class="profile" >
+
+    <input type="hidden" id="profile_name_<%= friend.profile.id %>" value="<%= friend.profile.name %>" />
+
     <% if friend.profile.photo.exists? then %>
       <%= image_tag friend.profile.photo.url(:small) %>
       <% else %>
       <p>sem foto</p>
     <% end %>
     <br />
-    <%= link_to friend.profile.user.login, friend.profile %>
+    <%= link_to friend.profile.user.login, friend.profile, :class => "test" %>
     <!--a href="#" id="lnk_add_friend" >Add friend</a><span id="result"></span -->
-    <span id="result_<%= friend.profile.user.id.to_s %>"></span>
+    <span id="result_<%= friend.profile.id %>"></span>
   </div>
+
 <% end %>

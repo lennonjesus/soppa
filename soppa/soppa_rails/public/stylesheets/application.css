@@ -73,3 +73,7 @@
   }
 
   .ui-widget{font-size:11px !important;}
+
+  #soppa_tab {
+      min-height: 500px;
+  }

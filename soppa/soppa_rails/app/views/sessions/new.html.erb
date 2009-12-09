@@ -1,7 +1,8 @@
-<% form_tag session_path do -%>
+<% form_tag session_path, :id => "frm_login" do -%>
   <p>
     <label for="login">Login</label><br/>
-    <%= text_field_tag 'login' %>
+    <%= text_field_tag 'login', "", :class => "req-string" %>
+    <div id="errorDiv1" class="input-container" ></div>
   </p>
 
   <p>
@@ -20,6 +21,6 @@
   </p>
 
   <p>
-    <%= submit_tag 'Entrar' %>
+    <%= submit_tag 'Entrar', :id => "btn_login", :class => "button fg-button ui-state-default ui-corner-all" %>
   </p>
 <% end -%>

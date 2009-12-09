@@ -1,6 +1,11 @@
-# This controller handles the login/logout function of the site.  
+#
+# Classe responsavel pela logica relacionada ao gerenciamento de sessoes / autenticacao dos usuarios do sistema
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class SessionsController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
+
 
   # render new.rhtml
   def new

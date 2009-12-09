@@ -1,3 +1,9 @@
+#
+# Classe que representa o perfil de um usuario
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class Profile < ActiveRecord::Base
 
   belongs_to :user

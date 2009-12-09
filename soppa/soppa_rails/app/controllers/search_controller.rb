@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela logica relacionada as buscas
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class SearchController < ApplicationController
 
   def all

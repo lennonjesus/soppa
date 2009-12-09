@@ -1,5 +1,11 @@
+#
+# Classe responsavel pela logica relacionada aos usuarios do sistema
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
+  
   include AuthenticatedSystem
   
 

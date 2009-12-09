@@ -1,11 +1,19 @@
 require 'digest/sha1'
+
+
+#
+# Classe que representa um usuario do sistema
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class User < ActiveRecord::Base
 
   has_one   :profile
   has_many  :comments
   has_many  :recipes
-  has_one :bookmark
-  has_many :markets
+  has_one   :bookmark
+  has_many  :markets
 
   #Auto-relacionamento para criar amiguinhos... :p (Exclua caso dê errado!)
 
