@@ -1,4 +1,3 @@
-
 <%= "<h3>Usu&aacute;rios</h3>" unless @users.empty? %>
 <% for user in @users do  %>
   <%= link_to user.profile.name, profile_path(user.profile) %><br />

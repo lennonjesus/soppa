@@ -1,23 +1,3 @@
-<script type="text/javascript" >
-
-  $().ready(function () {
-
-    $("#estados").change (function () {
-      $.ajax (
-        {
-           success: function(request) {
-             $('#market_city_id').html(request);
-           },
-           type: 'post',
-           url: '/cities/load_cities/' + $(this).val()
-         }
-      )
-    });
-
-  });
-
-</script>
-
 <% form_for(@market, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
@@ -54,6 +34,69 @@
     <%= f.file_field :photo %>
   </p>
   <p>
-    <%= f.submit 'Save' %>
+    <input type="button" id="btn_save_market" value="save" />
   </p>
 <% end %>
+
+  
+
+<script type="text/javascript" >
+
+  $().ready(function () {
+
+    $('#pnl_msg_market').dialog({
+                autoOpen: false,
+                modal: true,
+                title: "Adicionar mercado",
+                buttons: {
+                        "Ok": function() {
+                                $(this).dialog("close");
+                        }
+                }
+        });
+
+    $("#estados").change (function () {
+
+      $.ajax (
+        {
+           success: function(request) {
+             $('#market_city_id').html(request);
+           },
+           type: 'get',
+           url: '/cities/load_cities/' + $(this).val()
+         }
+      )
+    });
+
+  });
+
+  $("#btn_save_market").click(function () {
+
+      $.ajax (
+        {
+           success: function(request) {
+             $('#pnl_msg_market').html(request);
+             $('#pnl_msg_market').dialog('open');
+           },
+           type: 'post',
+           url: '/markets/create',
+           data: $.param($("#new_market").serializeArray())
+         }
+      );
+
+      return false;
+
+      }).hover(
+        function(){
+                $(this).addClass("ui-state-hover");
+        },
+        function(){
+                $(this).removeClass("ui-state-hover");
+        }
+      ).mousedown(function(){
+      $(this).addClass("ui-state-active");
+      }).mouseup(function(){
+      $(this).removeClass("ui-state-active");
+    });
+
+</script>

@@ -6,6 +6,9 @@ pt_BR:
       login:
         success: "Autenticação bem sucedida"
 
+  titles:
+    friends: "Meus amigos"
+
   profiles:
     index:
       title: "Perfis"
@@ -17,6 +20,7 @@ pt_BR:
       login: "Login"
       signup: "Registre-se"
       logout: "Sair"
+      admin: "Admin"
       my_profile: "Meu perfil"
       my_favorites: "Meus favoritos"
       create_profile: "Criar perfil"
@@ -24,6 +28,7 @@ pt_BR:
       markets: "Mercados"
       recipes: "Receitas"
       recipe_types: "Tipos de Receitas"
+      inactive_markets: "Mercados inativos"
       ingredients: "Ingredientes"
       ingredient_types: "Tipos de Ingredientes"
       create_market: "Criar mercado"

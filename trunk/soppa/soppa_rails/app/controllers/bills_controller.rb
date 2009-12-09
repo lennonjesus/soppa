@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela emissao de boletos de cobranca
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class BillsController < ApplicationController
   layout 'brlayout'
 

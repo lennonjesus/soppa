@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela logica do relacionamento entre dois usuarios (amigos)
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class FriendsController < ApplicationController
   
   def index

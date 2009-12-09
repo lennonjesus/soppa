@@ -1,3 +1,9 @@
+#
+# Classe responsavel pela logica dos favoritos
+# Autores:  Lennon Jesus - lennon.jesus@gmail.com
+#           Michel de Carli - micheldecarli@gmail.com
+#           Wesley Monteiro - wygres@gmail.com
+#
 class BookmarksController < ApplicationController
 
   before_filter :login_required
